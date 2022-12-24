@@ -1,0 +1,463 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>INTERNS MANAGEMENT SYSTEM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./styles/style.css"
+    />
+  </head>
+  <body>
+    <div class="container-for-login container" id="container-for-login">
+      <div class="left-image">
+        <img src="./assets/login.jpg" class="login-image" />
+      </div>
+      <div class="login-container">
+        <div class="project-title">INTERNS MANAGEMENT SYSTEM</div>
+        <form
+          class="login-form form"
+          id="login-form"
+          onsubmit="loginButtonHandle();return false"
+        >
+          <h2 class="login-header">Login page</h2>
+          <label for="email" class="login-username-label label margin-alignment"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            class="login-email-box input-box margin-alignment"
+            placeholder="email"
+            required
+          />
+          <label
+            for="password"
+            class="login-password-label label margin-alignment"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            class="login-password-box input-box margin-alignment"
+            placeholder="password"
+            required
+          />
+          <div class="login-btn-div btn-div">
+            <div class="login-btn btns">
+              <button
+                type="submit"
+                class="login-button btn margin-alignment"
+                id="login-button"
+              >
+                login
+              </button>
+            </div>
+            <div class="signup btns">
+              <button
+                type="button"
+                class="signup-button btn margin-alignment"
+                id="signup-button"
+                onclick="signupInfo()"
+              >
+                sign up
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container-for-signup container" id="container-for-signup">
+      <div class="left-image">
+        <img src="./assets/login.jpg" class="login-image" />
+      </div>
+      <div class="signup-container">
+        <form class="signup-form" onsubmit="signUpButtonHandle();return false">
+          <h2 class="login-header">SIGN UP</h2>
+          <label
+            for="nameOfEmployee"
+            class="signup-nameOfEmployee-label label margin-alignment"
+            >Name</label
+          >
+          <input
+            type="text"
+            id="nameOfEmployee"
+            class="signup-nameOfEmployee-box input-box margin-alignment"
+            placeholder="name"
+            required
+          />
+          <label
+            for="emailOfEmployee"
+            class="signup-emailOfEmployee-label label margin-alignment"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="emailOfEmployee"
+            class="signup-emailOfEmployee-box input-box margin-alignment"
+            placeholder="email"
+            required
+          />
+          <label
+            for="employeeId"
+            class="signup-employeeId-label label margin-alignment"
+            >Employee Id</label
+          >
+          <input
+            type="text"
+            id="employeeId"
+            class="signup-employeeId-box input-box margin-alignment"
+            placeholder="employee Id"
+            required
+          />
+          <label
+            for="techStackChosen"
+            class="signup-techStackChosen-label label margin-alignment"
+            >tech Stack Chosen</label
+          >
+          <input
+            type="text"
+            id="techStackChosen"
+            class="signup-techStackChosen-box input-box margin-alignment"
+            placeholder="tech Stack Chosen"
+            required
+          />
+          <label
+            for="phoneNumber"
+            class="signup-phoneNumber-label label margin-alignment"
+            >phone Number</label
+          >
+          <input
+            type="text"
+            id="phoneNumber"
+            class="signup-phoneNumber-box input-box margin-alignment"
+            placeholder="phone Number"
+            required
+          />
+          <label
+            for="password"
+            class="signup-password-label label margin-alignment"
+            >password</label
+          >
+          <input
+            type="password"
+            id="passwordForSignup"
+            class="signup-password-box input-box margin-alignment"
+            placeholder="password"
+            required
+          />
+          <label
+            for="confirm-password"
+            class="signup-confirm-password-label label margin-alignment"
+            >confirm password</label
+          >
+          <input
+            type="password"
+            id="confirmPassword"
+            class="signup-confirm-password-box input-box margin-alignment"
+            placeholder="confirm password"
+            required
+          />
+          <button
+            type="submit"
+            class="signuppage-button btn"
+            id="signuppage-button"
+          >
+            signup
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="interns-dashboard" id="interns-dashboard">
+      <div class="left-side">
+        <div class="interns-header">INTERNS DASHBOARD</div>
+        <div class="interns-button-div">
+          <button class="intern-page-btn" onclick="createTasks()">
+            create tasks
+          </button>
+          <button class="intern-page-btn" onclick="listOfTasks()">
+            list of all tasks
+          </button>
+          <button class="intern-page-btn" onclick="recordTime()">
+            record time
+          </button>
+        </div>
+      </div>
+      <div class="right-side">
+        <img src="./assets/Interns_dashboard.webp" class="dashboard-image" />
+      </div>
+    </div>
+    <div class="create-task-pop-up message-container" id="create-task-pop-up">
+      <div class="add-task-header">ADD TASK</div>
+      <button class="back-from-task" onclick="backToDashboardFromTask()">
+        back
+      </button>
+      <form class="add-task-form" id="add-task-form" onsubmit="return false">
+        <label for="task-name" class="label margin-alignment">Task Name</label>
+        <input
+          type="text"
+          placeholder="Task Name"
+          id="task-name"
+          class="input-box margin-alignment"
+          required
+        />
+        <label for="project-name" class="label margin-alignment"
+          >Project Name</label
+        >
+        <input
+          type="text"
+          placeholder="Project Name"
+          id="project-name"
+          class="input-box margin-alignment"
+          required
+        />
+        <label for="description" class="label margin-alignment"
+          >Description</label
+        >
+        <textarea
+          id="description"
+          class="description"
+          placeholder="description"
+          rows="3"
+          cols="30"
+          class="input-box margin-alignment"
+          required
+        ></textarea>
+        <label for="estimated-time" class="label margin-alignment"
+          >Estimated Time</label
+        >
+        <input
+          type="text"
+          placeholder="Estimated Time"
+          id="estimated-time"
+          class="input-box margin-alignment"
+          required
+        />
+        <button type="submit" class="add-task-btn btn margin-alignment">
+          Add
+        </button>
+      </form>
+    </div>
+    <div class="list-of-tasks-container" id="list-of-tasks">
+      <div class="nav-bar" id="navbar">
+        <button class="back-to-home-from-list" onclick="backToHomeFromList()">
+          back
+        </button>
+        <div class="list-of-tasks-header" id="list-of-tasks-header">
+          LIST OF ALL TASKS
+        </div>
+        <div class="profile-and-logout" id="profile-and-logout">
+          <button
+            class="profile"
+            id="profile"
+            onclick="takeToProfilePage('listsPage')"
+          >
+            <img
+              src="./assets/profile.png"
+              alt="profile"
+              class="profile-image"
+              id="profile-image"
+            />
+          </button>
+          <button
+            class="logout"
+            id="logout"
+            onclick="logoutFromApp('list-of-tasks')"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+      <div
+        class="todo-progress-completed-container"
+        id="todo-progress-completed-container"
+      >
+        <div class="todo-div list-div" id="todo-div">
+          <div class="todo-list-header list-header">TO-DO</div>
+          <div
+            class="todo-list-container tasks-insertion"
+            id="todo-list-container"
+          ></div>
+        </div>
+        <div class="inprogress-div list-div" id="inprogress-div">
+          <div class="inprogress-list-header list-header">IN-PROGRESS</div>
+          <div
+            class="inprogress-list-container tasks-insertion"
+            id="inprogress-list-container"
+          ></div>
+        </div>
+        <div class="completed-div list-div" id="completed-div">
+          <div class="completed-list-header list-header">COMPLETED</div>
+          <div
+            class="completed-list-container tasks-insertion"
+            id="completed-list-container"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div class="message-container" id="validation-message-container">
+      <div class="message" id="validation-message"></div>
+    </div>
+    <div class="message-container" id="choose-inprogress-or-completed">
+      <h4 class="choose-header">choose where to move</h4>
+      <div class="add-task-form progress-form">
+        <div class="radio-button">
+          <input
+            type="radio"
+            id="in-progress"
+            class=""
+            name="move"
+            value="inprogress"
+          />
+          <label for="in-progress" class="label margin-alignment"
+            >In progress</label
+          >
+        </div>
+        <div class="radio-button">
+          <input
+            type="radio"
+            id="completed"
+            class=""
+            name="move"
+            value="completed"
+          />
+          <label for="completed" class="label margin-alignment">
+            .completed</label
+          >
+        </div>
+        <button
+          class="move-inprogress-completed"
+          id="move-inprogress-completed"
+          onclick="moveToInprogressOrCompleted()"
+        >
+          move
+        </button>
+      </div>
+    </div>
+
+    <div class="profile-div" id="profile-div">
+      <div class="nav-bar" id="navbar">
+        <div class="list-of-tasks-header" id="list-of-tasks-header">
+          PROFILE
+        </div>
+        <div class="profile-and-logout" id="profile-and-logout">
+          <button class="back-btn" id="back" onclick="backToPreviousPage()">
+            back
+          </button>
+          <button
+            class="logout-btn"
+            id="logout"
+            onclick="logoutFromApp('profile-div')"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+      <div class="profile-container" id="profile-container">
+        <img
+          src="./assets/profile_image.webp"
+          class="profile-image-for-profile-div"
+          alt="profile"
+        />
+        <div class="personal-form-container">
+          <div class="personal-name personal-div">
+            <div class="name-label labels">Name</div>
+            <div class="name-value value" id="name-value">value</div>
+          </div>
+          <div class="personal-email personal-div">
+            <div class="email-label labels">Email</div>
+            <div class="email-value value" id="email-value">value</div>
+          </div>
+          <div class="personal-employeeID personal-div">
+            <div class="employeeID-label labels">Employee ID</div>
+            <div class="employeeID-value value" id="employeeID-value">
+              value
+            </div>
+          </div>
+          <div class="personal-techStack personal-div">
+            <div class="techStack-label labels">Tech stack chosen</div>
+            <div class="techStack-value value" id="techStack-value">value</div>
+          </div>
+          <div class="personal-phone personal-div">
+            <div class="phone-label labels">Phone number</div>
+            <div class="phone-value value" id="phone-value">value</div>
+          </div>
+          <div class="personal-project personal-div">
+            <div class="project-label labels">Project currently working</div>
+            <div class="project-value value" id="project-value">value</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="record-time-container" id="record-time-container">
+      <div class="nav-bar" id="navbar">
+        <button
+          class="record-time-back-button"
+          onclick="backToHomeFromRecordPage()"
+        >
+          back
+        </button>
+        <div class="list-of-tasks-header" id="list-of-tasks-header">
+          TASKS TO BE COMPLETED
+        </div>
+        <div class="profile-and-logout" id="profile-and-logout">
+          <button
+            class="profile"
+            id="profile"
+            onclick="takeToProfilePage('recordtimePage')"
+          >
+            <img
+              src="./assets/profile.png"
+              alt="profile"
+              class="profile-image"
+              id="profile-image"
+            />
+          </button>
+          <button
+            class="logout"
+            id="logout"
+            onclick="logoutFromApp('list-of-tasks')"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+      <img src="./assets/timer.webp" alt="timer" class="timer-image"/>
+      <div class="tasks-div" id="tasks-div"></div>
+    </div>
+    <div class="admin-page" id="admin-page">
+      <div class="nav-bar" id="navbar">
+        <div class="list-of-tasks-header" id="list-of-tasks-header">
+          ADMIN PAGE
+        </div>
+        <div class="profile-and-logout" id="profile-and-logout">
+          <button
+            class="logout-admin"
+            id="logout"
+            onclick="logoutFromApp('admin-page')"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+      <img src="./assets/admin.jpg" alt="admin" class="admin"/>
+      <div class="admin-container">
+        <div class="first-container interns-content-container">
+          <div class="intern-name-header intern-info">Intern Name</div>
+          <div class="intern-current-task-header intern-info">Current Task</div>
+          <div class="estimated-time-header intern-info">Estimation Time</div>
+          <div class="completion-time intern-info">completion time</div>
+        </div>
+        <div
+          class="content-of-intern-container"
+          id="content-of-intern-container"
+        ></div>
+      </div>
+    </div>
+    <script src="./scripts/webApi.js"></script>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
